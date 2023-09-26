@@ -52,12 +52,29 @@ Due to the large amount of data, the [BigQuery SQL database platform](https://cl
 To explore the data, the following measures were taken. 
 1. Query each table to make sure it has imported correctly into BigQuery.
    - Result: All tables imported correctly.
-3. Examine table schemas to ensure uniformity across tables.
+2. Examine table schemas to ensure uniformity across tables.
    - Result: All tables have the same schema.
-4. Check for duplicate Ride IDs.
+3. Check for duplicate Ride IDs.
 	- Result: There were no duplicate Ride IDs.
-5. Examine nulls in all fields.
+4. Examine nulls in all fields.
 	- Result: There were nulls in start and end station names. When the station name was null, the station ID was also null.
-		- Action: Determine possibility of using provided station coordinates to fill in the missing start and end station names. 
-Start by listing the latitude and longitude for each station name, rounded to .001. The station latitude and longitude vary by entry; for example, Aberdeen St & Monroe St has latitude values of 41.881 and 41.88 and longitude values of -87.656 and -87.655 in Rows 7 and 8, respectively. Therefore, the station coordinates have variance. Furthermore, the close proximity of stations to one another makes it so that multiple stations have the same or similar coordinates; the nearby station Ada St & 113th St in row 10 has a latitude of 41.878 and longitude of -87.655. Therefore, when given the station coordinates, it cannot be ascertained which station the coordinates refer to. 
-		- Result: the entries with null start station names/IDs and/or end start station names/IDs will be omitted.
+		- Action: Determine possibility of using provided station coordinates to fill in the missing start and end station names.
+			- Start by listing the latitude and longitude for each station name, rounded to .001. The station latitude and longitude vary by entry; for example, Aberdeen St & Monroe St has latitude values of 41.881 and 41.88 and longitude values of -87.656 and -87.655 in Rows 7 and 8, respectively (Figure 1). Furthermore, the close proximity of stations to one another makes it so that multiple stations have the same or similar coordinates; the nearby station Ada St & 113th St in row 10 has a latitude of 41.878 and longitude of -87.655. Therefore, when given the station coordinates, it cannot be ascertained which station the coordinates refer to.
+	   		 - Result: the entries with null start station names/IDs and/or end start station names/IDs will be omitted.
+
+<figure>
+  <figcaption><font size="1">Figure 1. Station name and corresponding latitude and longitude values.</font></figcaption>
+  <img width="500" src="https://github.com/cpilon1/Cyclistic_2022_data/assets/144136275/21b40521-c0b9-443d-9501-f12c9cadbed1" alt="Figure 1">
+</figure>
+
+5. Look for trips less than 1 minute or more than 24 hours.
+	- Result: 121089 trips are less than 1 minute; 5360 are greater than/equal to 1 day. These trips will be omitted.
+6. Check for bike type and user type errors and inconsistencies.
+	- The string lengths for bike types and user type were consistent.
+7. Check for station name errors and inconsistencies.
+	- The string lengths for station names were consistent.
+8. Check for entries where bike type is docked bike. The docked bikes are not in circulation and this data is to be omitted.
+	- There were 177474 entries for docked bikes that will be omitted.
+
+
+
