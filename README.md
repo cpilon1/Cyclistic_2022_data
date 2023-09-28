@@ -27,42 +27,35 @@ Due to the large amount of data, the [BigQuery SQL database platform](https://cl
 
 ### Explore the Data
 
-The schema is shown in Figure 1 below. To explore the data, the following steps were taken. 
+The schema is shown in Figure 1 below.
 
 Figure 1. Cyclistic metadata.
-  
-<img width="399" alt="Screenshot 2023-09-26 at 6 58 03 PM" src="https://github.com/cpilon1/Cyclistic_2022_data/assets/144136275/1524a344-7385-4a4f-a771-68444061c32a">
+| Field Name | Type | Description |
+|----------| ----------| ----------| 
+| ride_id | string | Primary key; unique ID number for each bike trip |
+| rideable_type | string | Bike type: electric_bike, classic_bike, or docked_bike |
+| started_at | timestamp | date and time ride began |
+| ended_at | timestamp | date and time ride ended |
+| start_station_name | string | the name of the station where the trip began |
+| start_station_id | string | unique ID number of the start station |
+| end_station_name | string | the name of the station where the trip ended |
+| end_station_id | string | unique ID number of the end station |
+| start_lat | float | latitude of start location in decimal degrees |
+| start_lng | float | longitude of start location in decimal degrees |
+| end_lat | float | latitude of end location in decimal degrees |
+| end_lng | float | longitude of end location in decimal degrees |
+| member_casual | float | User type: member for subscribed user; casual for single-ride or 1-day pass |
 
-1. Query each table to make sure it has **imported correctly** into BigQuery.
-   - Result: All tables imported correctly.
-2. Examine table schemas to ensure **uniformity across tables**.
-   - Result: All tables have the same schema.
-3. Check for **duplicate Ride IDs**.
-	- Result: There were no duplicate Ride IDs.
-4. Examine **nulls** in all fields.<br>
-Figure 2. The number of null values found in each data set.<br>
-<img width="663" alt="Screenshot 2023-09-26 at 7 46 53 PM" src="https://github.com/cpilon1/Cyclistic_2022_data/assets/144136275/87424b1c-e4a7-4a71-8174-58c9f55b8185"><br>
-	- Result: There were nulls in start and end station names and IDs (Figure 1). When the station name was null, the station ID was also null.
-		- Action: Determine possibility of using provided station coordinates to fill in the missing start and end station names.
-			- Start by listing the latitude and longitude for each station name, rounded to .001. The station latitude and longitude vary by entry; for example, Aberdeen St & Monroe St has latitude values of 41.881 and 41.88 and longitude values of -87.656 and -87.655 in Rows 7 and 8, respectively (Figure 3). Furthermore, the close proximity of stations to one another makes it so that multiple stations have the same or similar coordinates; the nearby station Ada St & 113th St in row 10 has a latitude of 41.878 and longitude of -87.655. Therefore, when given the station coordinates, it cannot be ascertained which station the coordinates refer to.
-	   		 - Result: the entries with null start station names/IDs and/or end start station names/IDs will be omitted.
-       - Result: There were nulls in end station latitude and longitude (Figure 1).
-       		- Action: The information for latitude and longitude can be added when the station name is known.
+To explore the data, the following steps were taken. 
+1. Each file has uploaded to BigQuery successfully.
+2. All tables were confirmed to have the same schema.
+3. Null values exist in start_station_name, start_station_id, end_station_name, end_station_id, end_lat, and end_lng.
+	- When a station name is null, the corresponding station ID is also null.
+	- When the end_lat and end_lng values are null, the station name is not null. NOTE: Keep those rows.
+	- Where the start_station_name/end_station_name is null, there are non-null start_lat, start_lng, end_lat and end_lng values. The close proximity of stations to one another makes it so that multiple stations have the same or similar coordinates when rounded to 4 decimal places. Therefore, when given the station coordinates, it is not certain which station the coordinates refer to.
 
-
-
-        Figure 3. Station name and corresponding latitude and longitude values.
-        <img width="600" alt="Screenshot 2023-09-26 at 4 36 08 PM" src="https://github.com/cpilon1/Cyclistic_2022_data/assets/144136275/a3e51ac8-efd5-49df-9b77-695780dfe4a6">
-
-
-6. Look for trips less than 1 minute or more than 24 hours.
-	- Result: 121089 trips are less than 1 minute; 5360 are greater than/equal to 1 day. These trips will be omitted.
-7. Check for bike type and user type errors and inconsistencies.
-	- The string lengths for bike types and user type were consistent.
-8. Check for station name errors and inconsistencies.
-	- The string lengths for station names were consistent.
-9. Check for entries where bike type is docked bike. The docked bikes are not in circulation and this data is to be omitted.
-	- There were 177474 entries for docked bikes that will be omitted.
-
-
+4. There are trips less than 1 minute long and longer than 24 hours. NOTE: Omit these rows.
+5. There are entries with docked bikes. NOTE: Omit these rows.
+6. There are no spelling errors or extra spaces in rideable_type or member_type.
+7. The string length for station names varies between 10-53 characters. Upon examining short and long string lengths, there were no string errors.
 
