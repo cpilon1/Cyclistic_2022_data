@@ -59,3 +59,25 @@ To explore the data, the following steps were taken.
 6. There are no spelling errors or extra spaces in rideable_type or member_type.
 7. The string length for station names varies between 10-53 characters. Upon examining short and long string lengths, there were no string errors.
 
+### Data Aggregation
+
+- Tables 1-12 were aggregated using UNION ALL function.
+- A table of station names and average latitude and longitude was created, called "station_coords1".
+
+### Data Cleaning
+
+The table used for analysis was created and filtered with the following information:
+- exclude rideable_type = "docked_bike"
+- calculate trip duration in minutes
+- extract trip duration in month, day of week, time
+- exclude NULL start_station_name and end_station_name
+- exclude latitude and longitude values
+
+### Data Validation
+
+- The totals in tables 1-12 and the totals in aggregated table equal are equal.
+- The amount of rows in cleaned data is equal to the aggregated data minus the removed data (docked bikes, null start or end station, trips <1 minute or > 24 hours).
+- Prove that: R (removed data) + C (clean data) = D (original data)  
+	Where $\Sigma$ R + $\Sigma$ C = $\Sigma$ Original Data  
+  	R = $\Sigma$ entries removed due (bike only + station only + time only + bike & station + bike & time + station & time + bike & station & time)  
+  	C = $\Sigma$ entries not removed
