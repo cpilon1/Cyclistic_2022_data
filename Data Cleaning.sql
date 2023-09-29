@@ -11,7 +11,9 @@ EXTRACT(TIME FROM started_at) AS starttime,
 EXTRACT(TIME FROM ended_at) AS endtime,
 DATETIME_DIFF(ended_at, started_at, MINUTE) AS duration_min,
 start_station_name,
+start_station_id,
 end_station_name,
+end_station_id,
 member_casual
 FROM `first-project-394620.Cyclistic_2022.data_aggregated`
 WHERE
