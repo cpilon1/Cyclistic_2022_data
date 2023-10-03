@@ -25,7 +25,8 @@ The data files were uploaded to Google Cloud Services with public access prevent
 ## Process
 Due to the large amount of data, the [BigQuery SQL database platform](https://cloud.google.com/bigquery?utm_source=google&utm_medium=cpc&utm_campaign=na-none-all-en-dr-sitelink-all-all-trial-e-gcp-1605212&utm_content=text-ad-none-any-DEV_c-CRE_665665924750-ADGP_Hybrid+%7C+BKWS+-+MIX+%7C+Txt_BigQuery-KWID_43700077225652815-kwd-47616965283-userloc_9067609&utm_term=KW_bigquery-ST_bigquery-NET_g-&gclid=EAIaIQobChMIisiHto7JgQMVwfnICh2UmAfuEAAYASABEgJbSPD_BwE&gclsrc=aw.ds) was used to explore and clean the data. The following steps were taken to view, sort and filter the data.
 
-### Explore the Data
+### Explore the Data  
+[SQL query](https://github.com/cpilon1/Cyclistic_2022_data/blob/main/Data%20Exploration.sql)
 
 The schema is shown in Figure 1 below.
 
@@ -59,12 +60,14 @@ To explore the data, the following steps were taken.
 6. There are no spelling errors or extra spaces in rideable_type or member_type.
 7. The string length for station names varies between 10-53 characters. Upon examining short and long string lengths, there were no string errors.
 
-### Data Aggregation
+### Data Aggregation  
+[SQL query](https://github.com/cpilon1/Cyclistic_2022_data/blob/main/Data%20Aggregation.sql)
 
 - Tables 1-12 were aggregated using UNION ALL function.
 - A table of station names and average latitude and longitude was created, called "station_coords1".
 
-### Data Cleaning
+### Data Cleaning  
+[SQL query](https://github.com/cpilon1/Cyclistic_2022_data/blob/main/Data%20Cleaning.sql)
 
 The table used for analysis was created and filtered with the following information:
 - exclude rideable_type = "docked_bike"
@@ -73,7 +76,8 @@ The table used for analysis was created and filtered with the following informat
 - exclude NULL start_station_name and end_station_name
 - exclude latitude and longitude values
 
-### Data Validation
+### Data Validation  
+[SQL query](https://github.com/cpilon1/Cyclistic_2022_data/blob/main/Data%20Validation.sql)
 
 - The totals in tables 1-12 and the totals in aggregated table equal are equal.
 - The amount of rows in cleaned data is equal to the aggregated data minus the removed data (docked bikes, null start or end station, trips <1 minute or > 24 hours).
