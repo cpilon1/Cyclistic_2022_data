@@ -83,20 +83,64 @@ The table used for analysis was created and filtered with the following informat
   	C = $\Sigma$ entries not removed
 
 ## Data Analysis
-<img width="1021" alt="Screenshot 2023-09-30 at 5 00 44 PM" src="https://github.com/cpilon1/Cyclistic_2022_data/assets/144136275/f2a14d1f-f166-4f4f-b4c6-26ebdd966dfa">
-<br>
 
-<img width="1017" alt="Screenshot 2023-09-30 at 5 01 32 PM" src="https://github.com/cpilon1/Cyclistic_2022_data/assets/144136275/0c9074e2-54c0-4af8-9b13-8f53a24d10b8">
-<br>
+### Start Stations and End Stations  
+The start and end stations used by annual members and casual users are compared in the charts below.
+Recommendation: Analyze why certain stations are popular with annual members, then aim marketing at casual users who use those stations. 
+
+#### [Start Stations](https://public.tableau.com/views/CPilon_Cyclistic_2022_Visualization/StartStations?:language=en-US&:display_count=n&:origin=viz_share_link)  
+
+<img width="1021" alt="Screenshot 2023-09-30 at 5 00 44 PM" src="https://github.com/cpilon1/Cyclistic_2022_data/assets/144136275/41199b74-efee-4c01-b566-e808dd57d46d">
+
+
+#### [End Stations](https://public.tableau.com/views/CPilon_Cyclistic_2022_Visualization/EndStations?:language=en-US&:display_count=n&:origin=viz_share_link)  
+
+<img width="1164" alt="Screenshot 2023-10-03 at 5 47 09 PM" src="https://github.com/cpilon1/Cyclistic_2022_data/assets/144136275/dc59092f-4d7f-4701-9b3f-82f16d3660cc">
+
+
+#### All Stations
+The number of annual member and casual user rides for the 20 most commonly-used stations are shown in the table below.  
+The table is ordered by the difference in rides between annual members and casual users. The stations used most by annual members but with few casual users are at the top of the table, while the stations used most by casual members with few annual members are at the bottom of the table.  
+The table includes the percent difference between annual members and casual users for each station (% Difference) and the total number of rides at each station for all users (% Total Rides).  
+Recommendation: The stations at the top of the table (Kingsbury St & Kinzie St, Loomis St & Lexington St, Clinton St & Washington Blvd, etc.) can be analyzed further to see whether the casual users for these stations could become annual members.
+
+<img width="639" alt="Screenshot 2023-10-03 at 5 52 55 PM" src="https://github.com/cpilon1/Cyclistic_2022_data/assets/144136275/500a9563-7093-4721-8f46-b27f38ef8921">
+
+### [Routes Taken](https://public.tableau.com/views/CPilon_Cyclistic_2022_Visualization/Routes?:language=en-US&:display_count=n&:origin=viz_share_link)
+
+The routes used by annual members and casual users are compared below.
+Recommendation: Aim marketing at stations along Ellis Avenue, State St, Morgan St and Calumet Ave to convert casual users into annual members. 
 
 <img width="1019" alt="Screenshot 2023-09-30 at 5 02 17 PM" src="https://github.com/cpilon1/Cyclistic_2022_data/assets/144136275/733474cb-edcf-4e1c-9e25-296bf9bec2c5">
 <br>
 
+### [Days of the Week](https://public.tableau.com/views/CPilon_Cyclistic_2022_Visualization/Days?:language=en-US&:display_count=n&:origin=viz_share_link)
+
+Annual members use the bikes most on weekdays, while casual users use the bikes most on the weekends.
+Recommendation: Consider adopting a trial membership offer aimed at weekend users.
+
 <img width="921" alt="Screenshot 2023-09-30 at 5 02 57 PM" src="https://github.com/cpilon1/Cyclistic_2022_data/assets/144136275/d868e3ac-7734-4aa5-a501-df1183baa64a">
 <br>
+
+### [Months of the Year](https://public.tableau.com/views/CPilon_Cyclistic_2022_Visualization/Months?:language=en-US&:display_count=n&:origin=viz_share_link)
+
+The months of May-October have the highest number of riders. 
+Recommendation: Consider how to convince casual summer riders to become annual members.
 
 <img width="877" alt="Screenshot 2023-09-30 at 5 03 55 PM" src="https://github.com/cpilon1/Cyclistic_2022_data/assets/144136275/5c6be4e7-db3b-4fb3-9d25-672cc246629c">
 <br>
 
+### [Trip Duration](https://public.tableau.com/views/CPilon_Cyclistic_2022_Visualization/Duration?:language=en-US&:display_count=n&:origin=viz_share_link)
+
+Casual users take longer rides than annual members, with a median ride time of 589 minutes (9 hours 49 minutes).
+Recommendation: Conduct further analysis to understand why casual users take longer rides.
+
 <img width="1036" alt="Screenshot 2023-09-30 at 5 11 38 PM" src="https://github.com/cpilon1/Cyclistic_2022_data/assets/144136275/5764f5ff-1c78-421b-a2ac-25d673730d72">
+
+### Bike Types
+
+Annual members and casual users both use classic bikes the most. However, casual users use electric bikes 43% of the time, while annual members use them 34% of the time.
+Recommendation: Determine how to attract more casual users to become annual members through use of electric bikes.
+
+<img width="677" alt="Screenshot 2023-10-03 at 6 06 26 PM" src="https://github.com/cpilon1/Cyclistic_2022_data/assets/144136275/faef4ee6-3c7e-4f0d-83a1-04f42e4248b6">
 
