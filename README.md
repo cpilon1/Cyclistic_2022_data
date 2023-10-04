@@ -14,6 +14,14 @@ The goal of Moreno’s marketing team is to design strategies to convert casual 
 
 **Task:** Marketing Director Lily Moreno has assigned me the task of answering 1) How casual users and annual members use Cyclistic bikes differently. 
 
+Questions to consider during data analysis: 
+- From which stations did annual members start and end their rides? From which stations did casual users start and end their rides?
+- Which stations were the most popular for all riders?
+- Which routes did annual members and casual users frequently use?
+- What were the most popular time periods for riders (time of day, day of week, month of year)?
+- How long were annual members trips compared to casual user trips?
+- Which types of bicycles did annual members and casual users prefer?
+
 ## Prepare
 
 The data used is Cyclistic historical trip data for the year 2022. The files are publicly available from [Divvy](https://divvy-tripdata.s3.amazonaws.com/index.html) and made available by Motivate International Inc. ([view license](https://divvybikes.com/data-license-agreement).) Due to data-privacy regulations, riders’ personally identifiable information and payment information is not available.
@@ -86,14 +94,13 @@ The table used for analysis was created and filtered with the following informat
   	R = $\Sigma$ entries removed due (bike only + station only + time only + bike & station + bike & time + station & time + bike & station & time)  
   	C = $\Sigma$ entries not removed
 
-## Analyze
-To answer the question of how casual users and annual members use Cyclistic bikes differently, the analysis was based on the following questions:  
-- From which stations did annual members start and end their rides? From which stations did casual users start and end their rides?
-- Which stations were the most popular for all riders?
-- Which routes did annual members and casual users frequently use?
-- What were the most popular time periods for riders (time of day, day of week, month of year)?
-- How long were annual members trips compared to casual user trips?
-- Which types of bicycles did annual members and casual users prefer?
+## Analyze  
+The biggest takeaways from data analysis were that use of Cyclistic bikes by casual users was distributed among fewer stations, during fewer months of the year, with longer ride durations and a preference for classic bikes. Annual members used a greater number of stations, had more users in the winter, and also preferred classic bikes. 
+- The number of rides taken by annual members was 2561462 (62%), while the number of rides by casual members was 1557850 (38%).  
+- Casual user rides were concentrated in the downtown area of Chicago on Ellis Avenue, State St, Morgan St and Calumet Ave. The annual members had more diversity in stations used, and included stations beyond downtown Chicago.  
+- While summer months were the most popular times for Cyclistic riders, annual members were more likely to use the bikes during winter months.   Both causal users and annual members use bikes on weekdays and weekends, but the number of casual users using the bikes on the weekends was slightly higher than that of annual members.  
+- Casual members on average used the bikes for longer periods of time than annual members 
+- Both annual members and casual users preferred classic bikes. Among electric bike users, a greater proportion were casual users.
 
 ## Share
 
@@ -159,11 +166,15 @@ Annual members and casual users both use classic bikes the most. However, casual
 <img width="400" alt="Screenshot 2023-10-03 at 6 06 26 PM" src="https://github.com/cpilon1/Cyclistic_2022_data/assets/144136275/faef4ee6-3c7e-4f0d-83a1-04f42e4248b6">
 
 ## Act    
-The following recommendations are made to the Cyclistic marketing team:
-- Aim marketing strategies at casual users who use the stations and routes that are popular for annual members.
-- Target weekdays and times of the year that are popular for annual members to use Cyclistic bikes and recruit casual users showing similar use patterns.
-- Offer marketing aimed at electric bike users to convince casual users to become annual members.
 
+The following recommendations are made to the Cyclistic marketing team:  
+- Aim marketing strategies at casual users who use the stations and routes that are popular for annual members.
+- Analyze weekdays and times of the year that are popular for annual members to use Cyclistic bikes and recruit casual users showing similar use patterns.
+- Offer a deal for casual users to get a membership for electric bikes to convince casual users to become annual members.
+
+Information that would be helpful in making further analyses:  
+- Knowing the **distance traveled** during each ride would help in noticing trends in ride duration and location; 
+- Associating each ride with a **customer ID** would allow us to see whether customers are making repeated trips, so that more direct marketing may be aimed at those users.
 
 ##### Project Reflection  
 This was my first data analysis project. I had the opportunity to employ various data analysis tools and techniques, such as SQL, Tableau, and Google Sheets. Goals for the next project are to understand better how to use SQL sub-queries and how to use calculated fields in Tableau. - Crystal Pilon, October, 2023
